@@ -6,6 +6,10 @@
       <span class="mb-3 mb-md-0 text-body-secondary"
         >© {{ currentYear }} Neil Chen</span
       >
+      <img
+        style="filter: drop-shadow(2px 4px 6px #5e5e5e); margin-top: 4px"
+        src="https://www.f-counter.net/j/63/1708486094/"
+        alt="計數器" />
     </div>
   </footer>
 </template>
