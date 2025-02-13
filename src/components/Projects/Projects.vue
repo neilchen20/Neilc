@@ -24,7 +24,7 @@
             :href="project.attributes.projectLink"
             target="_blank"
             class="btn btn-sm btn-outline-secondary"
-            >view</a
+            >View</a
           >
         </div>
       </li>

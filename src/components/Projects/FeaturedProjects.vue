@@ -19,9 +19,14 @@
             :alt="project.projectTitle" />
         </div>
         <div class="card-body">
-          <h5 class="card-title">{{ project.projectTitle }}</h5>
-          <p class="card-text">{{ project.projectDescription }}</p>
-          <div class="d-flex justify-content-end align-items-center">
+          <div class="d-flex justify-content-between">
+            <h5 class="card-title">{{ project.projectTitle }}</h5>
+            <small class="text-body-secondary">{{ project.projectDate }}</small>
+          </div>
+          <p class="card-text mb-5">{{ project.projectDescription }}</p>
+          <div
+            class="d-flex justify-content-end align-items-center position-absolute"
+            style="right: 16px; bottom: 16px">
             <div class="btn-group">
               <a
                 :href="project.projectLink"
@@ -30,7 +35,6 @@
                 View
               </a>
             </div>
-            <small class="text-body-secondary">{{ project.projectDate }}</small>
           </div>
         </div>
       </div>
