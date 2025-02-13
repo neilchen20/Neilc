@@ -1,6 +1,14 @@
 <template>
-  <img :src="Banner" alt="Banner 大圖" />
+  <img :src="bannerUrl" alt="Banner" class="w-100" />
 </template>
+
 <script lang="ts" setup>
-import Banner from '../../assets/img/banner-.webp'
+const bannerUrl = new URL('../../assets/img/banner.webp', import.meta.url).href
 </script>
+
+<style lang="scss" scoped>
+img {
+  max-height: 500px;
+  object-fit: cover;
+}
+</style>
