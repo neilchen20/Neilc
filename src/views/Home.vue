@@ -1,5 +1,5 @@
 <template>
-  <img :src="banner" alt="Banner 大圖" />
+  <img :src="banner" alt="Banner" />
 </template>
 
 <script lang="ts" setup>
