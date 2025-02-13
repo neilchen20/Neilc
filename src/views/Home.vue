@@ -62,7 +62,6 @@ onMounted(async () => {
     const data = response.data.data
 
     ProjectsData.value = data // 假設這是原始數據
-    console.log('ProjectsData', ProjectsData.value)
 
     // 過濾出 ProjectHighLight 為 true 的項目
     const highlightedProjects = ProjectsData.value.filter(
@@ -93,8 +92,6 @@ onMounted(async () => {
         ...additionalProjects.map((project) => project.attributes)
       )
     }
-
-    console.log('Final ProjectsHighLight', ProjectsHighLight.value)
   } catch (error) {
     console.error('Error fetching data:', error)
   }
