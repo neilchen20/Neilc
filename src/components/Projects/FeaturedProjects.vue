@@ -19,14 +19,14 @@
             :alt="project.projectTitle" />
         </div>
         <div class="card-body">
-          <div class="d-flex justify-content-between">
+          <div>
             <h5 class="card-title">{{ project.projectTitle }}</h5>
-            <small class="text-body-secondary">{{ project.projectDate }}</small>
+            <p class="card-text mb-5">{{ project.projectDescription }}</p>
           </div>
-          <p class="card-text mb-5">{{ project.projectDescription }}</p>
           <div
-            class="d-flex justify-content-end align-items-center position-absolute"
+            class="d-flex justify-content-between align-items-center w-100"
             style="right: 16px; bottom: 16px">
+            <small class="text-body-secondary">{{ project.projectDate }}</small>
             <div class="btn-group">
               <a
                 :href="project.projectLink"
@@ -91,6 +91,11 @@ defineProps<{
         aspect-ratio: 16 / 9;
         object-fit: cover;
         border-radius: 16px;
+      }
+      .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
       }
     }
   }

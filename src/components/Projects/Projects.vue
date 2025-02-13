@@ -116,6 +116,7 @@ const sortedProjects = computed(() => {
         max-width: 98%;
         padding: 24px;
         padding-right: 0;
+        padding-left: 26px;
       }
       .event {
         border-bottom: 1px dashed #e8ebf1;

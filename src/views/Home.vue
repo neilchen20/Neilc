@@ -76,8 +76,8 @@ onMounted(async () => {
       console.log('No highlighted projects found')
     }
 
-    // 如果 ProjectsHighLight 不滿三個，補上最新的兩個項目
-    if (ProjectsHighLight.value.length < 3) {
+    // 如果高亮項目數量小於 3，從其他項目補滿
+    if (highlightedProjects.length < 3) {
       const additionalProjects = ProjectsData.value
         .filter((project) => !project.attributes.projectHighLight) // 過濾掉已經高亮的項目
         .sort(
@@ -85,12 +85,30 @@ onMounted(async () => {
             new Date(b.attributes.createdAt).getTime() -
             new Date(a.attributes.createdAt).getTime()
         ) // 按創建時間排序
-        .slice(0, 2) // 取最新的兩個項目
+        .slice(0, 3 - highlightedProjects.length) // 只補足到 3 個
 
-      // 提取 attributes 並添加到 ProjectsHighLight
-      ProjectsHighLight.value.push(
-        ...additionalProjects.map((project) => project.attributes)
-      )
+      // 組合高亮與補充的項目
+      ProjectsHighLight.value = [
+        ...highlightedProjects.map((project) => project.attributes),
+        ...additionalProjects.map((project) => project.attributes),
+      ]
+        // 🔥 在這裡按照 `projectDate` 進行遞減排序（最新的在前）
+        .sort(
+          (a, b) =>
+            new Date(b.projectDate).getTime() -
+            new Date(a.projectDate).getTime()
+        )
+    } else {
+      // 如果已經有 3 個高亮項目，直接使用，並按照 `projectDate` 排序
+      ProjectsHighLight.value = highlightedProjects
+        .slice(0, 3) // 只取前 3 個
+        .map((project) => project.attributes)
+        // 🔥 這裡也加上 `projectDate` 排序
+        .sort(
+          (a, b) =>
+            new Date(b.projectDate).getTime() -
+            new Date(a.projectDate).getTime()
+        )
     }
   } catch (error) {
     console.error('Error fetching data:', error)
