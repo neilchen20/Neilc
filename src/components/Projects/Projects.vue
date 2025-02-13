@@ -62,7 +62,7 @@ const props = defineProps<{
       projectDescription: string | null
       projectLink: string
       projectDate: string
-      projectSkill: string
+      projectSkill: string | null
       projectHighLight: boolean
       createdAt: string
       updatedAt: string

@@ -30,7 +30,7 @@
                 View
               </a>
             </div>
-            <small class="text-body-secondary">{{ projectDate }}</small>
+            <small class="text-body-secondary">{{ project.projectDate }}</small>
           </div>
         </div>
       </div>
@@ -41,13 +41,14 @@
 import { defineProps } from 'vue'
 
 // 定義 props
-const props = defineProps<{
+defineProps<{
   ProjectsHighLight: {
     projectTitle: string
     projectDescription: string | null
     projectLink: string
     projectDate: string
     projectHighLight: boolean
+    projectSkill: string | null
     createdAt: string
     updatedAt: string
     publishedAt: string

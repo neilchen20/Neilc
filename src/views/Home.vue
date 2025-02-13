@@ -33,6 +33,15 @@ interface Project {
   projectLink: string
   projectDate: string
   projectHighLight: boolean
+  projectSkill: string | null
+  projectImg: {
+    data: {
+      id: number
+      attributes: {
+        url: string
+      }
+    }[]
+  }
   createdAt: string
   updatedAt: string
   publishedAt: string
