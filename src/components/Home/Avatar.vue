@@ -1,10 +1,12 @@
 <template>
   <div id="img-container">
-    <img :src="avatarUrl" alt="Avatar" id="avatar" />
+    <div class="img-border">
+      <img :src="avatarUrl" alt="Avatar" id="avatar" />
+    </div>
   </div>
 </template>
 <script setup lang="ts">
-const avatarUrl = new URL('../../assets/img/avatar.webp', import.meta.url).href
+const avatarUrl = new URL('../../assets/img/IMG_0873.JPG', import.meta.url).href
 </script>
 <style lang="scss" scoped>
 #img-container {
@@ -17,16 +19,21 @@ const avatarUrl = new URL('../../assets/img/avatar.webp', import.meta.url).href
   @media (max-width: 991px) {
     justify-content: center;
     left: 0;
-    bottom: -42px;
+    bottom: -48px;
   }
-  #avatar {
+  .img-border {
+    border-radius: 50%;
+    border: 3px solid #4868f8;
     max-width: 124px;
     max-height: 124px;
-    border-radius: 50%;
-    border: 4px solid #4868f8;
+    overflow: hidden;
     @media (max-width: 991px) {
-      max-width: 84px;
-      max-height: 84px;
+      max-width: 96px;
+      max-height: 96px;
+    }
+    #avatar {
+      width: 100%;
+      transform: scale(1.4);
     }
   }
 }

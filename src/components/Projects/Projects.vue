@@ -3,7 +3,7 @@
     <h2 class="text-center mb-5 fw-bold">All Projects</h2>
     <ul class="timeline">
       <li
-        v-for="project in ProjectsData"
+        v-for="project in sortedProjects"
         :key="project.id"
         class="event"
         :data-date="project.attributes.projectDate">
@@ -51,7 +51,7 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps } from 'vue'
+import { computed, defineProps } from 'vue'
 
 // 定義 props
 const props = defineProps<{
@@ -78,6 +78,16 @@ const props = defineProps<{
     }
   }[]
 }>()
+
+// 計算屬性，根據 projectDate 進行遞減排序
+const sortedProjects = computed(() => {
+  return props.ProjectsData.sort((a, b) => {
+    return (
+      new Date(b.attributes.projectDate).getTime() -
+      new Date(a.attributes.projectDate).getTime()
+    )
+  })
+})
 </script>
 
 <style lang="scss">
